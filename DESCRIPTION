@@ -1,12 +1,13 @@
 Package: MLMania
 Type: Package
 Title: Functions, files, and dependencies for a Clustered MLM course
-Version: 2021.1.1
+Version: 2021.1.2
 Author: person("Jonathan", "Templin", email = "jonathan-templin@uiowa.edu", role = c("aut", "cre"))
 Maintainer: Jonathan Templin <jonathan-templin@uiowa.edu>
 Description: Contains all functions, files, and dependencies for Fall 2021 PSQF 6272 University of Iowa Clustered Multilevel Models course, 
     taught by Jonathan Templin. Package version is labeled as (year of course).(semester:1=Fall, 2=Spring).(version).
 Depends: 
+    foreign,
     lme4,
     lmerTest,
     nlme,
