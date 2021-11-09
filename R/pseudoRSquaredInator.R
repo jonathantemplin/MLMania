@@ -54,7 +54,7 @@ pseudoRSquaredinator = function(smallerModel, largerModel){
   pseudoR2 = NULL
   namesVec = NULL
   for (re in 1:nRandomEffectsLarge){
-    pseudoR2 = c(pseudoR2, (smallG[re]-largeG[re])/smallG[re])
+    pseudoR2 = c(pseudoR2, (smallG[re,re]-largeG[re,re])/smallG[re,re])
     namesVec = c(namesVec, paste0("R2 Random.",colnames(smallModelSummary$varcor[[1]])[re]))
   }
 
