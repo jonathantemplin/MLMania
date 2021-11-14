@@ -53,10 +53,17 @@ pseudoRSquaredinator = function(smallerModel, largerModel){
 
   pseudoR2 = NULL
   namesVec = NULL
-  for (re in 1:nRandomEffectsLarge){
-    pseudoR2 = c(pseudoR2, (smallG[re,re]-largeG[re,re])/smallG[re,re])
-    namesVec = c(namesVec, paste0("R2 Random.",colnames(smallModelSummary$varcor[[1]])[re]))
+
+  if (nRandomEffectsLarge == 1){ # single random effect appears as scalar not matrix
+    pseudoR2 = c(pseudoR2, (smallG[1]-largeG[1])/smallG[1])
+    namesVec = c(namesVec, paste0("R2 Random.",colnames(smallModelSummary$varcor[[1]])[1]))
+  } else {
+    for (re in 1:nRandomEffectsLarge){
+      pseudoR2 = c(pseudoR2, (smallG[re,re]-largeG[re,re])/smallG[re,re])
+      namesVec = c(namesVec, paste0("R2 Random.",colnames(smallModelSummary$varcor[[1]])[re]))
+    }
   }
+
 
   # get sigma2
   sigma2small = smallModelSummary$sigma^2
